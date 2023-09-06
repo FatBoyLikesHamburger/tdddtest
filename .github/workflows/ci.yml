@@ -1,4 +1,4 @@
-name: Simple CI
+name: Continuous Integration
 
 on:
   push:
@@ -13,23 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '12'
-
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.0'
 
-    - name: Install Node.js dependencies
-      run: npm install
+    - name: Cache Composer
+      uses: actions/cache@v2
+      with:
+        path: ~/.composer/cache
+        key: composer-${{ runner.os }}-${{ hashFiles('**/composer.json') }}
+        restore-keys: composer-${{ runner.os }}-
 
     - name: Install PHP dependencies
       run: composer install
 
     - name: Run tests
-      run: |
-        npm test
-        phpunit
+      run: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
