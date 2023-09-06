@@ -13,12 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        node-version: '12'  # 将 Node.js 版本更改为 12
+        node-version: '12.22.11'  # 将 Node.js 版本更改为 12.22.11
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '12'  # 将 Node.js 版本更改为 12
+        node-version: '12.22.11'  # 将 Node.js 版本更改为 12.22.11
 
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
