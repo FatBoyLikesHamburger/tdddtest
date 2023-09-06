@@ -13,16 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        node-version: '16' 
+        node-version: '12'  # 将 Node.js 版本更改为 12
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  
+        node-version: '12'  # 将 Node.js 版本更改为 12
+
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'
+        php-version: '7.0'  # 将 PHP 版本更改为 7.0
 
     - name: Install Node.js dependencies
       run: npm install 
