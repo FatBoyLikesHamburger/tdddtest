@@ -3,23 +3,32 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - master  
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  
+      uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  
     - name: Set up PHP
-      uses: shivammathur/setup-php@v2  
+      uses: shivammathur/setup-php@v2
       with:
         php-version: '7.4'
 
-    - name: Install dependencies
-      run: composer install  
+    - name: Install Node.js dependencies
+      run: npm install 
+
+    - name: Install PHP dependencies
+      run: composer install
 
     - name: Run tests
-      run: phpunit  
+      run: |
+        npm test  
+        phpunit
