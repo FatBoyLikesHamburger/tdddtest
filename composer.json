@@ -58,5 +58,10 @@
                 "PragmaRX\\Tddd\\Package\\ServiceProvider"
             ]
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
