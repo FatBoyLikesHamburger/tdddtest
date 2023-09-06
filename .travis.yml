@@ -10,6 +10,7 @@ php:
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
+# TESTING STUFF
 ## Cache composer
 cache:
   directories:
